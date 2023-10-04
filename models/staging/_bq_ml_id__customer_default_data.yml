@@ -4,3 +4,61 @@ sources:
   - name: BQ_ML_ID
     tables:
      - name: CUSTOMER_DEFAULT_DATA 
+       columns:
+         - name: ID
+           tests:
+            - not_null
+            - unique
+         - name: LIMIT_BALL
+         - name: SEX
+           tests:
+             - accepted_values:
+                 values: [1,2]
+         - name: EDUCATION
+           tests:
+             - accepted_values:
+                 values: [0,1,2,3,4,5,6]
+         - name: AGE
+           tests:
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: 0  
+                max_value: 100 
+                strictly: false
+         - name: PAY_0
+           tests:
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: -1  
+                max_value: 9 
+                strictly: false
+         - name: PAY_2
+           tests:
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: -1  
+                max_value: 9 
+                strictly: false
+         - name: PAY_3
+           tests:
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: -1  
+                max_value: 9 
+                strictly: false
+         - name: PAY_4
+           tests:
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: -1  
+                max_value: 9 
+                strictly: false
+         - name: PAY_5
+           tests:
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: -1  
+                max_value: 9 
+                strictly: false
+         - name: PAY_6
+           tests:
+            - dbt_expectations.expect_column_values_to_be_between:
+                min_value: -1  
+                max_value: 9 
+                strictly: false
+
+                   
